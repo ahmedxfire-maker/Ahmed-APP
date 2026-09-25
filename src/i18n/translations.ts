@@ -1,0 +1,870 @@
+export type Language = 'ar' | 'en';
+
+export const translations = {
+  ar: {
+    // Brand & Header
+    brand: {
+      title: 'منظومة الآفات الحجرية والزراعية المصرية',
+      subtitleInstitute: 'معهد بحوث وقاية النباتات',
+      subtitleDesc: 'حصر ورصد وتتبع انتشار الآفات والأمراض بالمحاصيل',
+      badge: 'EQAPS',
+      activeOutbreaksAlert: '{count} بؤرة حجرية نشطة',
+      officialReportBtn: 'التقرير الرسمي المعتمد',
+      reportShortBtn: 'تقرير',
+      resetDataBtn: 'استعادة البيانات الافتراضية',
+      resetConfirm: 'هل تريد إعادة تعيين كافة البيانات إلى الحالة الافتراضية الأولية؟',
+      switchLanguage: 'English',
+      currentLangLabel: 'العربية'
+    },
+    // Navigation Tabs
+    nav: {
+      home: 'الرئيسية',
+      dashboard: 'الخريطة والمؤشرات',
+      pests: 'سجل الآفات الحجرية',
+      reports: 'تقارير الرصد الميداني',
+      control: 'بروتوكولات المكافحة',
+      monthly: 'الإحصائيات الشهرية',
+      locations: 'المواقع والمناطق',
+      about: 'عن المشروع والمعهد'
+    },
+    // Common Actions & Labels
+    common: {
+      search: 'بحث...',
+      all: 'الكل',
+      exportCSV: 'تصدير CSV',
+      exportXLSX: 'تصدير Excel (XLSX)',
+      exportPDF: 'تحميل وثيقة PDF',
+      generatingPDF: 'جارٍ توليد PDF...',
+      printDocument: 'طباعة المستند',
+      printReportCenter: 'مركز التقارير',
+      actions: 'الإجراءات',
+      edit: 'تعديل',
+      delete: 'حذف',
+      cancel: 'إلغاء',
+      save: 'حفظ',
+      add: 'إضافة',
+      close: 'إغلاق',
+      notes: 'ملاحظات',
+      status: 'الحالة',
+      filter: 'تصفية',
+      total: 'الإجمالي',
+      feddans: 'فدان',
+      percent: '%',
+      confirmDelete: 'هل أنت متأكد من الحذف؟',
+      loading: 'جارٍ التحميل...',
+      page: 'صفحة',
+      of: 'من',
+      date: 'التاريخ',
+      referenceNo: 'الرقم المرجعي',
+      inspector: 'المفتش',
+      governorate: 'المحافظة',
+      markaz: 'المركز / الإدارة',
+      crop: 'المحصول',
+      severity: 'الشدة',
+      pest: 'الآفة'
+    },
+    // Overview KPIs
+    kpis: {
+      registeredPests: 'الآفات المسجلة والمصنفة',
+      pestsUnit: 'نوعاً في 9 فئات',
+      quarantineRegulatedBadge: '{count} آفة حجرية (أ1 / أ2) تحت الرقابة',
+      totalAffectedArea: 'إجمالي المساحات المتضررة',
+      affectedUnit: 'فدان برصد ميداني',
+      reportsBadge: '{count} بلاغ رصد ({severe} بؤر شديدة)',
+      pfaTitle: 'المناطق الخالية من الآفات (PFA)',
+      pfaUnit: 'مركزاً ({percent}% من الرصد)',
+      pfaBadge: 'معتمدة لتصدير الحاصلات للأسواق الدولية',
+      hotspotsTitle: 'البؤر الحجرية وتدابير المكافحة',
+      hotspotsUnit: 'بؤرة حجرية نشطة',
+      hotspotsBadge: '{measures} برنامج مكافحة وتدبير احتواء معتمد'
+    },
+    // Egypt Map Component
+    map: {
+      title: 'خريطة التوزيع الجغرافي وحالة الحجر الزراعي لمحافظات مصر',
+      subtitle: 'نظام الاستشعار الوبائي الحجري لتحديد بؤر الإصابة والمناطق الخالية للتصدير (PFA / ALPP)',
+      filterPest: 'فلترة حسب الآفة:',
+      filterZone: 'تصنيف الحجر:',
+      allPests: 'جميع الآفات المسجلة',
+      allZones: 'كافة التصنيفات الحجرية',
+      pfaZone: 'منطقة خالية (PFA)',
+      alppZone: 'منخفضة الإصابة (ALPP)',
+      medZone: 'متوسطة الإصابة',
+      highZone: 'عالية الإصابة (حجرية)',
+      pfaLabel: 'خالية من الآفات (PFA)',
+      alppLabel: 'منخفضة الإصابة (ALPP)',
+      medLabel: 'متوسطة الإصابة',
+      highLabel: 'بؤرة حجرية حمراء',
+      summaryBanner: 'توزيع مراكز الرصد الميداني: {pfa} خالية PFA • {alpp} منخفضة ALPP • {med} متوسطة • {high} بؤر حجرية عالية',
+      selectedGovernorate: 'بيانات المحافظة المختارة:',
+      sector: 'القطاع الزراعي:',
+      agriculturalArea: 'الرقعة الزراعية:',
+      zoneClassification: 'تصنيف المنطقة الحجرية:',
+      relatedReports: 'بلاغات الإصابة المرتبطة:',
+      noReportsForLocation: 'لا توجد بلاغات إصابة مسجلة لهذا الموقع (منطقة نظيفة).',
+      closeDetails: 'إغلاق التفاصيل',
+      viewAllInReports: 'عرض كافة بلاغات الموقع في جدول التقارير',
+      mapLegend: 'دليل تصنيف المناطق الحجرية (IPPC / FAO Standards)'
+    },
+    // Dashboard Charts
+    charts: {
+      pestTypeDistribution: 'توزيع الآفات حسب النوع البيولوجي',
+      pestTypeSubtitle: 'حصر تصنيفي للكائنات الممرضة والغازية للرقعة الزراعية المصرية',
+      infestationSeverityTitle: 'نسب شدة الإصابات المرصودة حقلياً',
+      infestationSeveritySubtitle: 'توزيع بلاغات الرصد الميداني حسب درجة الضرر الواقع على المحاصيل',
+      monthlyTrendTitle: 'المنحنى الزمني الشهري للمساحات المتضررة والمعالجة (فدان)',
+      monthlyTrendSubtitle: 'مقارنة ديناميكية بين انتشار الإصابات ومعدلات التدخل والمكافحة خلال عام 2026',
+      activeOutbreaksTitle: 'تطور أعداد البؤر الحجرية النشطة عبر الشهور',
+      activeOutbreaksSubtitle: 'مؤشر أداء الحصار والاستئصال الوبائي للبؤر الحجرية المسجلة',
+      affectedFeddans: 'المساحة المتضررة (فدان)',
+      treatedFeddans: 'المساحة المعالجة (فدان)',
+      activeOutbreaks: 'البؤر الحجرية النشطة',
+      efficiencyRate: 'معدل كفاءة المكافحة',
+      affectedCropsTitle: 'أهم المحاصيل الزراعية المتأثرة بالرصد الميداني',
+      affectedCropsSubtitle: 'توزيع بلاغات الإصابة والمساحات المتضررة حسب المحصول العائل',
+      infestationSitesTitle: 'توزيع الإصابات الحجرية حسب العضو النباتي المصاب',
+      infestationSitesSubtitle: 'تحليل مواضع الإصابة بالأنسجة والأعضاء النباتية لمختلف الآفات'
+    },
+    // KPIs alias for OfficialPrintReport
+    kpi: {
+      totalPests: 'إجمالي الآفات المسجلة',
+      affectedArea: 'المساحة المتضررة حقلياً',
+      pfaDistricts: 'مراكز خالية معتمدة (PFA)',
+      activeHotspots: 'البؤر الحجرية النشطة'
+    },
+    // Monthly Stats alias
+    monthlyStats: {
+      title: 'جدول الإحصائيات الشهرية للرصد والمكافحة الحجرية (2026)',
+      colMonth: 'الشهر',
+      colMonthCode: 'رمز الشهر',
+      colNewReports: 'بلاغات جديدة',
+      colAffectedArea: 'المساحة المتضررة',
+      colTreatedArea: 'المساحة المعالجة',
+      colEfficiency: 'كفاءة المكافحة',
+      colActiveOutbreaks: 'بؤر نشطة',
+      colStatus: 'الموقف التنفيذي'
+    },
+    // Monthly Stats Table
+    monthly: {
+      title: 'جدول الإحصائيات الشهرية للرصد والمكافحة الحجرية (2026)',
+      subtitle: 'سجل تتبعي تراكمي لحصر المساحات المصابة والمعالجة والبؤر النشطة ونسب الإنجاز على مستوى الجمهورية',
+      yearSelector: 'السنة المالية / الزراعية:',
+      addNewMonth: 'إضافة إحصائية شهر جديد',
+      colMonth: 'الشهر',
+      colReports: 'بلاغات الرصد',
+      colAffected: 'المساحة المتضررة (فدان)',
+      colTreated: 'المساحة المعالجة (فدان)',
+      colEfficiency: 'نسبة التطهير والمكافحة',
+      colOutbreaks: 'البؤر الحجرية النشطة',
+      colStatus: 'الموقف التنفيذي',
+      summaryTotalReports: 'إجمالي البلاغات',
+      summaryTotalAffected: 'إجمالي المتضرر (فدان)',
+      summaryTotalTreated: 'إجمالي المعالج (فدان)',
+      summaryAvgEfficiency: 'متوسط كفاءة المكافحة',
+      activeHotspotsRemaining: 'البؤر المتبقية تحت الحصار',
+      outbreaksCount: '{count} بؤرة',
+      statusHighAlert: 'استنفار ومكافحة مكثفة',
+      statusStable: 'مستقر وتحت السيطرة',
+      statusNormal: 'متابعة روتينية'
+    },
+    // Pests Table
+    pests: {
+      title: 'جدول الآفات الزراعية والحجرية (Pests Inventory Table)',
+      subtitle: 'سجل مرجعي شامل للآفات الحشرية، الفطرية، البكتيرية، النيماتودا، الحشائش، والأكاروسية',
+      addNewPest: 'إضافة آفة جديدة للمنظومة',
+      filterType: 'نوع الآفة:',
+      filterCategory: 'التصنيف الحجري:',
+      filterRisk: 'مستوى الخطورة:',
+      colCode: 'الكود',
+      colCommonName: 'الاسم الشائع',
+      colScientificName: 'الاسم العلمي',
+      colType: 'النوع',
+      colCategory: 'التصنيف الحجري',
+      colHostCrops: 'أهم العوائل النباتية',
+      colRisk: 'مستوى الخطورة',
+      colActions: 'الإجراءات'
+    },
+    // Reports Table
+    reports: {
+      title: 'جدول تقارير الإصابة الزراعية (Infestation Reports)',
+      subtitle: 'رصد ميداني لبؤر الإصابة الحجرية، تحديد الأعضاء المصابة والمساحات المتضررة بالفدان',
+      addNewReport: 'تسجيل بلاغ / تقرير إصابة جديد',
+      filterSeverity: 'شدة الإصابة:',
+      filterSite: 'مكان الإصابة بالنبات:',
+      colId: 'معرف التقرير',
+      colGovMarkaz: 'المحافظة / المركز',
+      colPest: 'الآفة المرصودة',
+      colCrop: 'المحصول العائل',
+      colDate: 'تاريخ الرصد',
+      colSeverity: 'الشدة',
+      colAffectedArea: 'المساحة (فدان)',
+      colSite: 'مكان الإصابة',
+      colRate: 'نسبة الإصابة %',
+      colInspector: 'مفتش الرصد',
+      colStatus: 'حالة الاحتواء'
+    },
+    // Control Measures Table
+    control: {
+      title: 'جدول التوصيات الفنية وتدابير المكافحة الحجرية (Control Measures)',
+      subtitle: 'دليل المبيدات المعتمدة والممارسات الزراعية والتشريعات الحجرية لاحتواء واستئصال الآفات',
+      addNewMeasure: 'إضافة توصية مكافحة معتمدة',
+      filterPest: 'الآفة المستهدفة:',
+      colId: 'الكود',
+      colPest: 'الآفة المستهدفة',
+      colPesticide: 'المبيد الموصى به',
+      colActiveIngredient: 'المادة الفعالة',
+      colPhi: 'فترة الأمان (PHI)',
+      colDosage: 'الجرعة وطريقة التطبيق',
+      colQuarantineRules: 'التدابير الحجرية المصاحبة',
+      colAuthority: 'جهة الاعتماد'
+    },
+    // Locations Table
+    locations: {
+      title: 'جدول المواقع الجغرافية ومراكز الرصد الزراعي (Locations & Zones)',
+      subtitle: 'قاعدة بيانات المراكز والمحافظات، الإحداثيات الجغرافية، الرقعة الزراعية والتصنيف الوبائي الحجري',
+      addNewLocation: 'إضافة موقع رصد جديد',
+      filterSector: 'القطاع الزراعي:',
+      colCode: 'رمز الموقع',
+      colId: 'رمز الموقع',
+      colGov: 'المحافظة',
+      colMarkaz: 'المركز / المنطقة',
+      colSector: 'القطاع الزراعي',
+      colArea: 'المساحة الزراعية (فدان)',
+      colCoordinates: 'الإحداثيات الجغرافية',
+      colZoneStatus: 'التصنيف الحجري الوبائي',
+      colClassification: 'التصنيف الحجري الوبائي'
+    },
+    // Official Printable Report Modal
+    officialReport: {
+      modalTitle: 'مركز التقارير والتوثيق الرسمي المعتمد (CAPQ)',
+      tabGeneral: 'التقرير التنفيذي العام',
+      tabPests: 'سجل حصر الآفات',
+      tabMonthly: 'الإحصائيات الشهرية',
+      republicHeader: 'جمهورية مصر العربية',
+      ministryHeader: 'وزارة الزراعة واستصلاح الأراضي',
+      capqHeader: 'الإدارة المركزية للحجر الزراعي المصري (CAPQ)',
+      systemHeader: 'منظومة الرصد والتتبع الوبائي والحجري للآفات الزراعية',
+      complianceHeader: 'معتمدة وفق معايير الاتفاقية الدولية لوقاية النباتات (IPPC / FAO)',
+      confidentialityLabel: 'درجة السرية: وثيقة رسمية معتمدة',
+      executiveSummaryTitle: 'أولاً: ملخص الموقف الوبائي والحجري العام لجمهورية مصر العربية',
+      kpiTotalPests: 'إجمالي الآفات المسجلة',
+      kpiTotalAffected: 'المساحة المتضررة حقلياً',
+      kpiCriticalReports: 'بلاغات الإصابة الحرجة',
+      kpiPfaSafe: 'مراكز خالية معتمدة (PFA)',
+      pfaSectionTitle: 'ثانياً: المراكز الزراعية المعتمدة كمناطق خالية من الآفات الحجرية (PFA)',
+      pfaSectionDesc: 'المناطق التالية مستوفاة للاشتراطات الحجرية للمعيار الدولي ISPM 4 ومصرح بالتصدير منها:',
+      hotspotSectionTitle: 'ثالثاً: البؤر الحجرية عالية الخطورة الخاضعة لبرامج الحصار والاستئصال الفوري',
+      pestInventoryTitle: 'بيان حصر الآفات الزراعية والحجرية المصنفة رسمياً بمصر',
+      monthlyStatsTitle: 'التقرير الإحصائي الشهري المعتمد لعمليات الرصد والمكافحة لعام 2026',
+      signaturesTitle: 'الاعتمادات والتوقيعات الرسمية',
+      fieldInspectorSign: 'مهندس الرصد والحجر الميداني',
+      quarantineHeadSign: 'مدير إدارة الحجر الزراعي الداخلي',
+      directorGeneralSign: 'رئيس الإدارة المركزية للحجر الزراعي (CAPQ)',
+      stampText: 'خاتم شعار الجمهورية / الحجر الزراعي المصري',
+      electronicVerification: 'وثيقة معتمدة ومصدرة إلكترونياً عبر منظومة EQAPS'
+    },
+    // Footer
+    footer: {
+      copyright: 'منظومة الآفات الحجرية والزراعية المصرية - معهد بحوث وقاية النباتات © 2026',
+      pestControlAdmin: 'الإدارة العامة لمكافحة الآفات',
+      projects: 'مشروع حصر أنواع وتوزيع وكثافة الآفات الزراعية على أهم المحاصيل بالزراعات المصرية',
+      certified: 'معتمدة دولياً IPPC / FAO'
+    },
+    // Official Website & Portal
+    portal: {
+      govHeader: 'جمهورية مصر العربية — وزارة الزراعة واستصلاح الأراضي — مركز البحوث الزراعية',
+      instituteTitle: 'معهد بحوث وقاية النباتات (PPRI)',
+      hotlineTitle: 'الخط الساخن للبلاغات الحجرية',
+      hotlineNumber: '19561',
+      hotlineSub: 'طوارئ الآفات 24/7',
+      heroBadge: 'البوابة الرقمية الموحدة للصحة النباتية والأمان الحيوي الزراعي',
+      heroTitle: 'مشروع حصر أنواع وتوزيع وكثافة الآفات الزراعية على أهم المحاصيل بالزراعات المصرية',
+      heroSubtitle: 'المنظومة الوطنية المتكاملة للرصد المبكر، التتبع الجغرافي لبؤر الإصابة الحجرية، وتطبيق المعايير الدولية لحماية الصادرات والأمن الغذائي القومي.',
+      searchPlaceholder: 'ابحث عن آفة زراعية، محصول، محافظة، أو مبيد موصى به...',
+      btnExploreMap: 'استعراض الخريطة التفاعلية',
+      btnReportOutbreak: 'تقديم بلاغ رصد فوري',
+      btnPestsCatalog: 'دليل الآفات الحجرية',
+      btnOfficialPDF: 'التقرير الوزاري المعتمد',
+      quickServicesTitle: 'باقة الخدمات الرقمية للبوابة',
+      quickServicesSub: 'خدمات إلكترونية تفاعلية موجهة للمزارعين، مهندسي الحجر، والمصدرين الزراعيين',
+      service1Title: 'الاستعلام وتشخيص الآفات',
+      service1Desc: 'البحث عن التصنيف البيولوجي ودرجة خطورة الآفة A1/A2 وتأثيرها على المحاصيل المصرية.',
+      service2Title: 'الخريطة الذكية لبؤر الإصابة',
+      service2Desc: 'رصد فوري لمناطق PFA الخالية من الآفات، والمناطق منخفضة الإصابة ALPP، والبؤر الخاضعة للحصار.',
+      service3Title: 'الإبلاغ الميداني المباشر',
+      service3Desc: 'منصة لتقديم البلاغات العاجلة عن الاشتباه بإصابات جديدة لمتابعتها من فرق الرصد الميداني.',
+      service4Title: 'توصيات المكافحة وفترات الأمان PHI',
+      service4Desc: 'دليل المبيدات المعتمدة، الجرعات السليمة، والحدود الآمنة للمتبقيات لضمان سلامة الغذاء والتصدير.',
+      service5Title: 'الإحصائيات الشهرية ومعدلات التطهير',
+      service5Desc: 'مؤشرات بيانية دورية توضح نسب تطهير البؤر وكفاءة عمليات المكافحة والمحاصرة البيولوجية.',
+      service6Title: 'إصدار الوثائق والشهادات الرسمية',
+      service6Desc: 'توليد تقارير رسمية معتمدة ومطابقة للمعايير الدولية IPPC / FAO بصيغتي PDF وExcel.',
+      alertsTitle: 'نشرات الإنذار المبكر والتوصيات الحجرية العاجلة',
+      alertsSub: 'تنبيهات لحظية لمتابعة حركة الآفات الموسمية والمحاصيل المستهدفة بالدلتا والصعيد والوادي الجديد',
+      strategicCropsTitle: 'المحاصيل الاستراتيجية والتصديرية تحت المراقبة المشددة',
+      strategicCropsSub: 'برامج مسح ميداني دورية لحماية الحاصلات المصرية في الأسواق المحلية وأسواق التصدير العالمية',
+      partnersTitle: 'الاعتمادات والمعايير الدولية الشريكة',
+      aboutPPRIHeading: 'عن معهد بحوث وقاية النباتات',
+      aboutPPRIDesc: 'صرح علمي وبحثي رائد بمركز البحوث الزراعية، يضطلع بمسؤولية حماية الثروة الزراعية المصرية والبيئة من الآفات الحشرية والأمراض النباتية، وتأمين جودة الصادرات الزراعية.',
+      contactUs: 'تواصل مع فريق المنظومة',
+      addressVal: '7 شارع نادي الصيد، الدقي، الجيزة، جمهورية مصر العربية'
+    }
+  },
+
+  en: {
+    // Brand & Header
+    brand: {
+      title: 'Egypt Pest Quarantine & Agricultural Surveillance',
+      subtitleInstitute: 'Plant Protection Research Institute (PPRI)',
+      subtitleDesc: 'Inventory, surveillance, and geographic tracking of quarantine crop pests',
+      badge: 'EQAPS',
+      activeOutbreaksAlert: '{count} Active Quarantine Foci',
+      officialReportBtn: 'Official Certified Report',
+      reportShortBtn: 'Report',
+      resetDataBtn: 'Reset Database to Defaults',
+      resetConfirm: 'Do you want to reset all data back to the initial default state?',
+      switchLanguage: 'العربية',
+      currentLangLabel: 'English'
+    },
+    // Navigation Tabs
+    nav: {
+      home: 'Home Portal',
+      dashboard: 'Surveillance Map & KPIs',
+      pests: 'Quarantine Pests Registry',
+      reports: 'Field Infestation Reports',
+      control: 'Control Protocols',
+      monthly: 'Monthly Statistics',
+      locations: 'Agricultural Zones',
+      about: 'About Project & PPRI'
+    },
+    // Common Actions & Labels
+    common: {
+      search: 'Search...',
+      all: 'All',
+      exportCSV: 'Export CSV',
+      exportXLSX: 'Export Excel (XLSX)',
+      exportPDF: 'Download PDF Document',
+      generatingPDF: 'Generating PDF...',
+      printDocument: 'Print Document',
+      printReportCenter: 'Reports Center',
+      actions: 'Actions',
+      edit: 'Edit',
+      delete: 'Delete',
+      cancel: 'Cancel',
+      save: 'Save',
+      add: 'Add',
+      close: 'Close',
+      notes: 'Notes',
+      status: 'Status',
+      filter: 'Filter',
+      total: 'Total',
+      feddans: 'Feddans',
+      percent: '%',
+      confirmDelete: 'Are you sure you want to delete this record?',
+      loading: 'Loading...',
+      page: 'Page',
+      of: 'of',
+      date: 'Date',
+      referenceNo: 'Reference No.',
+      inspector: 'Inspector',
+      governorate: 'Governorate',
+      markaz: 'District / Markaz',
+      crop: 'Crop',
+      severity: 'Severity',
+      pest: 'Pest'
+    },
+    // Overview KPIs
+    kpis: {
+      registeredPests: 'Registered & Classified Pests',
+      pestsUnit: 'species in 9 categories',
+      quarantineRegulatedBadge: '{count} quarantine pests (A1 / A2) regulated',
+      totalAffectedArea: 'Total Field Affected Area',
+      affectedUnit: 'feddans under surveillance',
+      reportsBadge: '{count} field reports ({severe} critical foci)',
+      pfaTitle: 'Pest Free Areas (PFA)',
+      pfaUnit: 'districts ({percent}% of surveyed)',
+      pfaBadge: 'Approved for global fresh export markets',
+      hotspotsTitle: 'Quarantine Foci & Control Measures',
+      hotspotsUnit: 'active quarantine foci',
+      hotspotsBadge: '{measures} containment & control protocols deployed'
+    },
+    // Egypt Map Component
+    map: {
+      title: 'Geographic Pest Distribution & Quarantine Status of Egypt',
+      subtitle: 'Epidemiological surveillance tracking outbreaks and export-certified Pest Free Areas (PFA / ALPP)',
+      filterPest: 'Filter by Pest:',
+      filterZone: 'Quarantine Zone:',
+      allPests: 'All Registered Pests',
+      allZones: 'All Quarantine Classifications',
+      pfaZone: 'Pest Free Area (PFA)',
+      alppZone: 'Low Prevalence Area (ALPP)',
+      medZone: 'Medium Infestation Area',
+      highZone: 'High Quarantine Outbreak',
+      pfaLabel: 'Pest Free (PFA)',
+      alppLabel: 'Low Prevalence (ALPP)',
+      medLabel: 'Medium Infestation',
+      highLabel: 'Red Quarantine Focus',
+      summaryBanner: 'Field surveillance districts: {pfa} PFA Safe • {alpp} ALPP Low • {med} Medium • {high} High Quarantine Foci',
+      selectedGovernorate: 'Selected Location Details:',
+      sector: 'Agricultural Sector:',
+      agriculturalArea: 'Arable Area:',
+      zoneClassification: 'Quarantine Classification:',
+      relatedReports: 'Linked Field Reports:',
+      noReportsForLocation: 'No infestation reports registered for this location (Clean Zone).',
+      closeDetails: 'Close Details',
+      viewAllInReports: 'View all location reports in Surveillance Table',
+      mapLegend: 'Quarantine Classification Guide (IPPC / FAO Standards)'
+    },
+    // Dashboard Charts
+    charts: {
+      pestTypeDistribution: 'Pest Distribution by Biological Classification',
+      pestTypeSubtitle: 'Inventory of biological pathogens and invasive species impacting Egyptian arable land',
+      infestationSeverityTitle: 'Field Infestation Severity Breakdown',
+      infestationSeveritySubtitle: 'Distribution of field surveillance reports by severity of crop damage',
+      monthlyTrendTitle: 'Monthly Trend of Affected vs. Treated Acreage (Feddans)',
+      monthlyTrendSubtitle: 'Dynamic comparison between pest outbreak expansion and phytosanitary treatment during 2026',
+      activeOutbreaksTitle: 'Evolution of Active Quarantine Foci Across 2026',
+      activeOutbreaksSubtitle: 'Performance indicator of quarantine containment and eradication campaigns',
+      affectedFeddans: 'Affected Area (Feddans)',
+      treatedFeddans: 'Treated Area (Feddans)',
+      activeOutbreaks: 'Active Quarantine Foci',
+      efficiencyRate: 'Treatment Efficiency Rate',
+      affectedCropsTitle: 'Top Agricultural Crops Affected by Infestation',
+      affectedCropsSubtitle: 'Distribution of surveillance reports and acreage by host crop',
+      infestationSitesTitle: 'Phytosanitary Infestation by Plant Tissue / Organ',
+      infestationSitesSubtitle: 'Breakdown of vulnerable plant organs across monitored pests'
+    },
+    // KPIs alias for OfficialPrintReport
+    kpi: {
+      totalPests: 'Total Registered Pests',
+      affectedArea: 'Field Affected Acreage',
+      pfaDistricts: 'Certified Pest Free Areas (PFA)',
+      activeHotspots: 'Active Quarantine Foci'
+    },
+    // Monthly Stats alias
+    monthlyStats: {
+      title: 'Monthly Surveillance & Quarantine Control Statistics (2026)',
+      colMonth: 'Month',
+      colMonthCode: 'Month Code',
+      colNewReports: 'New Reports',
+      colAffectedArea: 'Affected Area',
+      colTreatedArea: 'Treated Area',
+      colEfficiency: 'Efficiency',
+      colActiveOutbreaks: 'Active Foci',
+      colStatus: 'Operational Status'
+    },
+    // Monthly Stats Table
+    monthly: {
+      title: 'Monthly Surveillance & Quarantine Control Statistics (2026)',
+      subtitle: 'Cumulative record tracking affected acreage, phytosanitary treatment, active foci, and national progress',
+      yearSelector: 'Fiscal / Crop Year:',
+      addNewMonth: 'Add New Monthly Statistics',
+      colMonth: 'Month',
+      colReports: 'Surveillance Reports',
+      colAffected: 'Affected Area (Feddan)',
+      colTreated: 'Treated Area (Feddan)',
+      colEfficiency: 'Efficacy / Treatment Rate',
+      colOutbreaks: 'Active Quarantine Foci',
+      colStatus: 'Operational Status',
+      summaryTotalReports: 'Total Reports',
+      summaryTotalAffected: 'Total Affected (Feddans)',
+      summaryTotalTreated: 'Total Treated (Feddans)',
+      summaryAvgEfficiency: 'Average Treatment Efficacy',
+      activeHotspotsRemaining: 'Foci Remaining Under Quarantine',
+      outbreaksCount: '{count} foci',
+      statusHighAlert: 'High Alert & Intense Control',
+      statusStable: 'Stable & Under Containment',
+      statusNormal: 'Routine Surveillance'
+    },
+    // Pests Table
+    pests: {
+      title: 'Quarantine & Agricultural Pests Inventory Table',
+      subtitle: 'Authoritative registry of insect, fungal, bacterial, nematode, weed, and acarine pests',
+      addNewPest: 'Add New Pest to Registry',
+      filterType: 'Pest Biological Type:',
+      filterCategory: 'Quarantine Category:',
+      filterRisk: 'Risk Level:',
+      colCode: 'Code',
+      colCommonName: 'Common Name',
+      colScientificName: 'Scientific Name',
+      colType: 'Type',
+      colCategory: 'Quarantine Category',
+      colHostCrops: 'Primary Host Crops',
+      colRisk: 'Risk Level',
+      colActions: 'Actions'
+    },
+    // Reports Table
+    reports: {
+      title: 'Field Infestation Surveillance Reports Table',
+      subtitle: 'Field tracking of quarantine foci, affected plant organs, acreage damage, and phytosanitary logs',
+      addNewReport: 'Log New Field Infestation Report',
+      filterSeverity: 'Infestation Severity:',
+      filterSite: 'Affected Plant Organ:',
+      colId: 'Report ID',
+      colGovMarkaz: 'Governorate / District',
+      colPest: 'Detected Pest',
+      colCrop: 'Host Crop',
+      colDate: 'Detection Date',
+      colSeverity: 'Severity',
+      colAffectedArea: 'Affected Area (Feddan)',
+      colSite: 'Infestation Site',
+      colRate: 'Infestation %',
+      colInspector: 'Surveillance Inspector',
+      colStatus: 'Containment Status'
+    },
+    // Control Measures Table
+    control: {
+      title: 'Technical Recommendations & Phytosanitary Measures',
+      subtitle: 'Directory of approved pesticides, integrated agricultural practices, and quarantine containment rules',
+      addNewMeasure: 'Add New Approved Recommendation',
+      filterPest: 'Target Pest:',
+      colId: 'Code',
+      colPest: 'Target Pest',
+      colPesticide: 'Recommended Pesticide',
+      colActiveIngredient: 'Active Ingredient',
+      colPhi: 'Pre-Harvest Interval (PHI)',
+      colDosage: 'Dosage & Application Method',
+      colQuarantineRules: 'Phytosanitary Protocol',
+      colAuthority: 'Approval Authority'
+    },
+    // Locations Table
+    locations: {
+      title: 'Geographic Locations & Quarantine Surveillance Centers',
+      subtitle: 'Directory of Egyptian governorates, districts, coordinates, arable land, and epidemiological status',
+      addNewLocation: 'Add New Surveillance Location',
+      filterSector: 'Agricultural Sector:',
+      colCode: 'Location ID',
+      colId: 'Location ID',
+      colGov: 'Governorate',
+      colMarkaz: 'District / Markaz',
+      colSector: 'Agricultural Sector',
+      colArea: 'Arable Area (Feddan)',
+      colCoordinates: 'Coordinates',
+      colZoneStatus: 'Quarantine Status',
+      colClassification: 'Quarantine Status'
+    },
+    // Official Printable Report Modal
+    officialReport: {
+      modalTitle: 'CAPQ Official Documentation & Reporting Center',
+      tabGeneral: 'Executive General Report',
+      tabPests: 'Pests Inventory Registry',
+      tabMonthly: 'Monthly Statistics',
+      republicHeader: 'Arab Republic of Egypt',
+      ministryHeader: 'Ministry of Agriculture and Land Reclamation',
+      capqHeader: 'Central Administration of Plant Quarantine (CAPQ)',
+      systemHeader: 'National Epidemiological & Quarantine Pest Surveillance System',
+      complianceHeader: 'Certified under International Plant Protection Convention (IPPC / FAO)',
+      confidentialityLabel: 'Confidentiality: Official Certified Document',
+      executiveSummaryTitle: 'I. Executive Epidemiological & Phytosanitary Overview of Egypt',
+      kpiTotalPests: 'Total Registered Pests',
+      kpiTotalAffected: 'Field Affected Acreage',
+      kpiCriticalReports: 'Critical Infestation Reports',
+      kpiPfaSafe: 'Certified Pest Free Areas (PFA)',
+      pfaSectionTitle: 'II. Certified Pest Free Areas for Agricultural Export (PFA)',
+      pfaSectionDesc: 'The following districts comply with ISPM 4 international phytosanitary standards for export:',
+      hotspotSectionTitle: 'III. High-Risk Quarantine Outbreaks Under Active Containment & Eradication',
+      pestInventoryTitle: 'Official Registry of Classified Quarantine & Agricultural Pests in Egypt',
+      monthlyStatsTitle: 'Certified Monthly Surveillance and Phytosanitary Control Report (2026)',
+      signaturesTitle: 'Official Signatures & Certification',
+      fieldInspectorSign: 'Field Surveillance & Quarantine Officer',
+      quarantineHeadSign: 'Head of Internal Plant Quarantine Department',
+      directorGeneralSign: 'President of Central Administration of Plant Quarantine (CAPQ)',
+      stampText: 'Official State Seal / CAPQ Egypt',
+      electronicVerification: 'Officially certified and electronically generated via EQAPS Platform'
+    },
+    // Footer
+    footer: {
+      copyright: 'Egyptian Quarantine & Agricultural Pests System - Plant Protection Research Institute (PPRI) © 2026',
+      pestControlAdmin: 'General Administration for Pest Control',
+      projects: 'Project for Surveying Agricultural Pest Types, Distribution & Density on Major Crops in Egypt',
+      certified: 'Internationally Certified IPPC / FAO'
+    },
+    // Official Website & Portal
+    portal: {
+      govHeader: 'Arab Republic of Egypt — Ministry of Agriculture & Land Reclamation — Agricultural Research Center',
+      instituteTitle: 'Plant Protection Research Institute (PPRI)',
+      hotlineTitle: 'Quarantine Emergency Hotline',
+      hotlineNumber: '19561',
+      hotlineSub: 'Pest Emergencies 24/7',
+      heroBadge: 'Unified National Digital Portal for Phytosanitary & Biosecurity',
+      heroTitle: 'Project for Surveying Agricultural Pest Types, Distribution & Density on Major Crops in Egypt',
+      heroSubtitle: 'The unified national framework for early surveillance, GIS outbreak containment, and international IPPC standard compliance protecting Egyptian agricultural exports and national food security.',
+      searchPlaceholder: 'Search pest species, strategic crop, governorate, or approved control...',
+      btnExploreMap: 'Explore Interactive Map',
+      btnReportOutbreak: 'Submit Field Incident',
+      btnPestsCatalog: 'Quarantine Pest Registry',
+      btnOfficialPDF: 'Official Certified PDF',
+      quickServicesTitle: 'Portal Digital Services Hub',
+      quickServicesSub: 'Integrated interactive tools serving growers, quarantine inspectors, and agricultural exporters',
+      service1Title: 'Pest Diagnosis & Catalog',
+      service1Desc: 'Search biological taxonomy, A1/A2 regulatory quarantine tiers, and impact on Egyptian crops.',
+      service2Title: 'Smart Outbreak GIS Map',
+      service2Desc: 'Live monitoring of Pest-Free Areas (PFA), Low-Prevalence Zones (ALPP), and quarantined hotspots.',
+      service3Title: 'Direct Field Observation Reporting',
+      service3Desc: 'Direct public & field officer channel for reporting suspected exotic or invasive pest sightings.',
+      service4Title: 'Control Recommendations & PHI Safety',
+      service4Desc: 'Approved active ingredients, application dosage, and pre-harvest intervals ensuring food safety.',
+      service5Title: 'Monthly Indices & Containment Rates',
+      service5Desc: 'Statistical surveillance trends tracking eradication efficiency and biocontrol coverage.',
+      service6Title: 'Official Export Certification & Reports',
+      service6Desc: 'Generate ministerial-grade compliance reports aligned with IPPC/FAO standards in PDF & Excel.',
+      alertsTitle: 'Early Warning Phytosanitary Bulletins',
+      alertsSub: 'Real-time advisories tracking seasonal pest migrations across the Delta, Upper Egypt, and New Valley',
+      strategicCropsTitle: 'Strategic & Export Crops Under High Surveillance',
+      strategicCropsSub: 'Routine biological inspection programs shielding Egypt’s prime harvest for domestic and global markets',
+      partnersTitle: 'International Accreditation & Compliance Partners',
+      aboutPPRIHeading: 'About Plant Protection Research Institute (PPRI)',
+      aboutPPRIDesc: 'Leading scientific institute under the Agricultural Research Center, mandated to safeguard Egypt’s agricultural wealth and ecology from insect pests and plant pathogens while elevating export quality.',
+      contactUs: 'Contact National Coordination Center',
+      addressVal: '7 Nadi El-Seid Street, Dokki, Giza, Arab Republic of Egypt'
+    }
+  }
+};
+
+// Data Value Dictionaries for bilingual presentation
+export const categoryTranslations: Record<string, { ar: string; en: string }> = {
+  'آفة حجرية أ1 (محظورة تماماً)': {
+    ar: 'آفة حجرية أ1 (محظورة تماماً)',
+    en: 'A1 Quarantine Pest (Absent / Prohibited)'
+  },
+  'آفة حجرية أ2 (محدودة الانتشار تحت الحصار)': {
+    ar: 'آفة حجرية أ2 (محدودة الانتشار تحت الحصار)',
+    en: 'A2 Quarantine Pest (Restricted Distribution)'
+  },
+  'آفة اقتصادية خاضعة للرقابة (RNQP)': {
+    ar: 'آفة اقتصادية خاضعة للرقابة (RNQP)',
+    en: 'Regulated Non-Quarantine Pest (RNQP)'
+  }
+};
+
+export const pestTypeTranslations: Record<string, { ar: string; en: string }> = {
+  'حشرية': { ar: 'حشرية', en: 'Insect' },
+  'فطرية': { ar: 'فطرية', en: 'Fungus' },
+  'نيماتودا': { ar: 'نيماتودا', en: 'Nematode' },
+  'حشائش': { ar: 'حشائش', en: 'Weed' },
+  'اكاروسي': { ar: 'اكاروسي', en: 'Mite / Acarine' },
+  'قوارض': { ar: 'قوارض', en: 'Rodent' },
+  'بكتيري': { ar: 'بكتيري', en: 'Bacterium' },
+  'طحالب': { ar: 'طحالب', en: 'Algae' },
+  'فقاريات': { ar: 'فقاريات', en: 'Vertebrate' }
+};
+
+export const severityTranslations: Record<string, { ar: string; en: string }> = {
+  'خفيفة': { ar: 'خفيفة', en: 'Low' },
+  'متوسطة': { ar: 'متوسطة', en: 'Medium' },
+  'جسيمة': { ar: 'جسيمة', en: 'Severe / Critical' }
+};
+
+export const siteTranslations: Record<string, { ar: string; en: string }> = {
+  'ساق': { ar: 'ساق', en: 'Stem / Trunk' },
+  'اوراق': { ar: 'أوراق', en: 'Leaves' },
+  'جذور': { ar: 'جذور', en: 'Roots' },
+  'تربة': { ar: 'تربة', en: 'Soil' },
+  'ثمار': { ar: 'ثمار', en: 'Fruits' },
+  'بذور': { ar: 'بذور', en: 'Seeds' }
+};
+
+export const zoneTranslations: Record<string, { ar: string; en: string }> = {
+  'منطقة خالية من الإصابة (PFA)': {
+    ar: 'منطقة خالية من الإصابة (PFA)',
+    en: 'Pest Free Area (PFA)'
+  },
+  'منطقة منخفضة الإصابة (ALPP)': {
+    ar: 'منطقة منخفضة الإصابة (ALPP)',
+    en: 'Area of Low Pest Prevalence (ALPP)'
+  },
+  'منطقة متوسطة الإصابة': {
+    ar: 'منطقة متوسطة الإصابة',
+    en: 'Medium Infestation Zone'
+  },
+  'منطقة عالية الإصابة (بؤرة حجرية)': {
+    ar: 'منطقة عالية الإصابة (بؤرة حجرية)',
+    en: 'High Infestation Zone (Quarantine Focus)'
+  }
+};
+
+export const sectorTranslations: Record<string, { ar: string; en: string }> = {
+  'وجه بحري - الدلتا': { ar: 'وجه بحري - الدلتا', en: 'Lower Egypt - Delta' },
+  'مصر الوسطى': { ar: 'مصر الوسطى', en: 'Middle Egypt' },
+  'مصر العليا': { ar: 'مصر العليا', en: 'Upper Egypt' },
+  'القناة وسيناء': { ar: 'القناة وسيناء', en: 'Suez Canal & Sinai' },
+  'الأراضي الجديدة والواحات': { ar: 'الأراضي الجديدة والواحات', en: 'New Reclamation Lands & Oases' }
+};
+
+export const riskLevelTranslations: Record<string, { ar: string; en: string }> = {
+  'منخفض': { ar: 'منخفض', en: 'Low' },
+  'متوسط': { ar: 'متوسط', en: 'Medium' },
+  'مرتفع': { ar: 'مرتفع', en: 'High' },
+  'حرج جداً': { ar: 'حرج جداً', en: 'Critical / High Risk' }
+};
+
+export const containmentTranslations: Record<string, { ar: string; en: string }> = {
+  'قيد المتابعة': { ar: 'قيد المتابعة', en: 'Under Monitoring' },
+  'تحت المعالجة الكيميائية': { ar: 'تحت المعالجة الكيميائية', en: 'Under Treatment' },
+  'تم الاحتواء والحصار': { ar: 'تم الاحتواء والحصار', en: 'Contained' },
+  'مستقرة': { ar: 'مستقرة', en: 'Stable' }
+};
+
+export const governorateTranslations: Record<string, { ar: string; en: string }> = {
+  'البحيرة': { ar: 'البحيرة', en: 'Beheira' },
+  'الإسكندرية': { ar: 'الإسكندرية', en: 'Alexandria' },
+  'الدقهلية': { ar: 'الدقهلية', en: 'Dakahlia' },
+  'الشرقية': { ar: 'الشرقية', en: 'Sharqia' },
+  'الغربية': { ar: 'الغربية', en: 'Gharbia' },
+  'المنوفية': { ar: 'المنوفية', en: 'Menoufia' },
+  'القليوبية': { ar: 'القليوبية', en: 'Qalyubia' },
+  'كفر الشيخ': { ar: 'كفر الشيخ', en: 'Kafr El Sheikh' },
+  'دمياط': { ar: 'دمياط', en: 'Damietta' },
+  'الجيزة': { ar: 'الجيزة', en: 'Giza' },
+  'الفيوم': { ar: 'الفيوم', en: 'Faiyum' },
+  'بني سويف': { ar: 'بني سويف', en: 'Beni Suef' },
+  'المنيا': { ar: 'المنيا', en: 'Minya' },
+  'أسيوط': { ar: 'أسيوط', en: 'Asyut' },
+  'سوهاج': { ar: 'سوهاج', en: 'Sohag' },
+  'قنا': { ar: 'قنا', en: 'Qena' },
+  'الأقصر': { ar: 'الأقصر', en: 'Luxor' },
+  'أسوان': { ar: 'أسوان', en: 'Aswan' },
+  'الوادي الجديد': { ar: 'الوادي الجديد', en: 'New Valley' },
+  'مطروح': { ar: 'مطروح', en: 'Matrouh' },
+  'الإسماعيلية': { ar: 'الإسماعيلية', en: 'Ismailia' },
+  'السويس': { ar: 'السويس', en: 'Suez' },
+  'بورسعيد': { ar: 'بورسعيد', en: 'Port Said' },
+  'شمال سيناء': { ar: 'شمال سيناء', en: 'North Sinai' },
+  'جنوب سيناء': { ar: 'جنوب سيناء', en: 'South Sinai' },
+  'البحر الأحمر': { ar: 'البحر الأحمر', en: 'Red Sea' }
+};
+
+export const markazTranslations: Record<string, { ar: string; en: string }> = {
+  'دمنهور': { ar: 'دمنهور', en: 'Damanhour' },
+  'النوبارية': { ar: 'النوبارية', en: 'Noubaria' },
+  'إيتاي البارود': { ar: 'إيتاي البارود', en: 'Itay El Baroud' },
+  'أبو حمص': { ar: 'أبو حمص', en: 'Abu Hummus' },
+  'رشيد': { ar: 'رشيد', en: 'Rosetta (Rashid)' },
+  'العامرية': { ar: 'العامرية', en: 'Amreya' },
+  'برج العرب': { ar: 'برج العرب', en: 'Borg El Arab' },
+  'المنصورة': { ar: 'المنصورة', en: 'Mansoura' },
+  'ميت غمر': { ar: 'ميت غمر', en: 'Mit Ghamr' },
+  'دكرنس': { ar: 'دكرنس', en: 'Dikirnis' },
+  'السنبلاوين': { ar: 'السنبلاوين', en: 'Sinbillawin' },
+  'بلقاس': { ar: 'بلقاس', en: 'Belqas' },
+  'الزقازيق': { ar: 'الزقازيق', en: 'Zagazig' },
+  'بلبيس': { ar: 'بلبيس', en: 'Belbeis' },
+  'الحسينية': { ar: 'الحسينية', en: 'Husseiniya' },
+  'فاقوس': { ar: 'فاقوس', en: 'Faqous' },
+  'الصالحية الجديدة': { ar: 'الصالحية الجديدة', en: 'New Salhiya' },
+  'طنطا': { ar: 'طنطا', en: 'Tanta' },
+  'المحلة الكبرى': { ar: 'المحلة الكبرى', en: 'El Mahalla El Kubra' },
+  'زفتى': { ar: 'زفتى', en: 'Zefta' },
+  'كفر الزيات': { ar: 'كفر الزيات', en: 'Kafr El Zayat' },
+  'شبين الكوم': { ar: 'شبين الكوم', en: 'Shibin El Kom' },
+  'السادات': { ar: 'السادات', en: 'Sadat City' },
+  'أشمون': { ar: 'أشمون', en: 'Ashmoun' },
+  'بنها': { ar: 'بنها', en: 'Banha' },
+  'طوخ': { ar: 'طوخ', en: 'Toukh' },
+  'القناطر الخيرية': { ar: 'القناطر الخيرية', en: 'Qanater El Khayreya' },
+  'كفر الشيخ': { ar: 'كفر الشيخ', en: 'Kafr El Sheikh' },
+  'دسوق': { ar: 'دسوق', en: 'Desouk' },
+  'فوه': { ar: 'فوه', en: 'Fouh' },
+  'الرياض': { ar: 'الرياض', en: 'El Reyad' },
+  'كفر سعد': { ar: 'كفر سعد', en: 'Kafr Saad' },
+  'فارسكور': { ar: 'فارسكور', en: 'Faraskour' },
+  'الواحات البحرية': { ar: 'الواحات البحرية', en: 'Bahariya Oases' },
+  'العياط': { ar: 'العياط', en: 'Al Ayat' },
+  'أطفيح': { ar: 'أطفيح', en: 'Atfih' },
+  'طامية': { ar: 'طامية', en: 'Tamia' },
+  'إطسا': { ar: 'إطسا', en: 'Itsa' },
+  'يوسف الصديق': { ar: 'يوسف الصديق', en: 'Youssef El Seddik' },
+  'الواسطى': { ar: 'الواسطى', en: 'El Wasta' },
+  'إهناسيا': { ar: 'إهناسيا', en: 'Ahnasia' },
+  'الفشن': { ar: 'الفشن', en: 'El Fashn' },
+  'بني مزار': { ar: 'بني مزار', en: 'Beni Mazar' },
+  'سمالوط': { ar: 'سمالوط', en: 'Samalut' },
+  'ملوي': { ar: 'ملوي', en: 'Mallawi' },
+  'منفلوط': { ar: 'منفلوط', en: 'Manfalut' },
+  'ديروط': { ar: 'ديروط', en: 'Dairut' },
+  'البداري': { ar: 'البداري', en: 'El Badari' },
+  'طما': { ar: 'طما', en: 'Tama' },
+  'طهطا': { ar: 'طهطا', en: 'Tahta' },
+  'جرجا': { ar: 'جرجا', en: 'Girga' },
+  'نجع حمادي': { ar: 'نجع حمادي', en: 'Nag Hammadi' },
+  'قوص': { ar: 'قوص', en: 'Qus' },
+  'دشنا': { ar: 'دشنا', en: 'Dishna' },
+  'إسنا': { ar: 'إسنا', en: 'Esna' },
+  'أرمنت': { ar: 'أرمنت', en: 'Armant' },
+  'كوم أمبو': { ar: 'كوم أمبو', en: 'Kom Ombo' },
+  'إدفو': { ar: 'إدفو', en: 'Edfu' },
+  'توشكى': { ar: 'توشكى', en: 'Toshka' },
+  'الخارجة': { ar: 'الخارجة', en: 'Al Kharga' },
+  'الداخلة': { ar: 'الداخلة', en: 'Al Dakhla' },
+  'الفرافرة': { ar: 'الفرافرة', en: 'Farafra' },
+  'شرق العوينات': { ar: 'شرق العوينات', en: 'East Oweinat' },
+  'سيوة': { ar: 'سيوة', en: 'Siwa' },
+  'الحمام': { ar: 'الحمام', en: 'Al Hamam' },
+  'الضبعة': { ar: 'الضبعة', en: 'El Dabaa' },
+  'التل الكبير': { ar: 'التل الكبير', en: 'El Tell El Kebir' },
+  'القنطرة غرب': { ar: 'القنطرة غرب', en: 'Qantara West' },
+  'القنطرة شرق': { ar: 'القنطرة شرق', en: 'Qantara East' }
+};
+
+export const pestCommonNames: Record<string, { ar: string; en: string }> = {
+  'سوسة النخيل الحمراء': { ar: 'سوسة النخيل الحمراء', en: 'Red Palm Weevil' },
+  'ذبابة ثمار الخوخ / الفاكهة': { ar: 'ذبابة ثمار الخوخ / الفاكهة', en: 'Peach / Fruit Fly' },
+  'العفن البني في البطاطس': { ar: 'العفن البني في البطاطس', en: 'Potato Brown Rot / Bacterial Wilt' },
+  'صانعة أنفاق الطماطم (توتا أبسلوتا)': { ar: 'صانعة أنفاق الطماطم (توتا أبسلوتا)', en: 'Tomato Leafminer (Tuta absoluta)' },
+  'صدأ القمح الأصفر (المخطط)': { ar: 'صدأ القمح الأصفر (المخطط)', en: 'Yellow / Stripe Rust of Wheat' },
+  'نيماتودا تعقد الجذور': { ar: 'نيماتودا تعقد الجذور', en: 'Root-knot Nematode' },
+  'هالوك الفول البلدي': { ar: 'هالوك الفول البلدي', en: 'Faba Bean Broomrape' },
+  'العنكبوت الأحمر ذو البقعتين': { ar: 'العنكبوت الأحمر ذو البقعتين', en: 'Two-spotted Spider Mite' },
+  'فأر الغيط النيلي': { ar: 'فأر الغيط النيلي', en: 'Nile Grass Rat' },
+  'دودة ورق القطن': { ar: 'دودة ورق القطن', en: 'Cotton Leafworm' },
+  'طحالب انسداد قنوات الري والأرز': { ar: 'طحالب انسداد قنوات الري والأرز', en: 'Irrigation & Rice Algae Mat' },
+  'عصفور دوري المزارع النيلي': { ar: 'عصفور دوري المزارع النيلي', en: 'Nile House Sparrow' }
+};
+
+export const cropTranslations: Record<string, { ar: string; en: string }> = {
+  'نخيل البلح': { ar: 'نخيل البلح', en: 'Date Palm' },
+  'نخيل الزينة': { ar: 'نخيل الزينة', en: 'Ornamental Palms' },
+  'الموالح': { ar: 'الموالح', en: 'Citrus' },
+  'المانجو': { ar: 'المانجو', en: 'Mango' },
+  'الخوخ': { ar: 'الخوخ', en: 'Peach' },
+  'الجوافة': { ar: 'الجوافة', en: 'Guava' },
+  'المشمش': { ar: 'المشمش', en: 'Apricot' },
+  'البطاطس': { ar: 'البطاطس', en: 'Potato' },
+  'الطماطم': { ar: 'الطماطم', en: 'Tomato' },
+  'الباذنجان': { ar: 'الباذنجان', en: 'Eggplant' },
+  'الفلفل': { ar: 'الفلفل', en: 'Pepper' },
+  'القمح': { ar: 'القمح', en: 'Wheat' },
+  'الشعير': { ar: 'الشعير', en: 'Barley' },
+  'الموز': { ar: 'الموز', en: 'Banana' },
+  'العنب': { ar: 'العنب', en: 'Grape' },
+  'الخيار': { ar: 'الخيار', en: 'Cucumber' },
+  'الفول البلدي': { ar: 'الفول البلدي', en: 'Faba Bean' },
+  'البسلة': { ar: 'البسلة', en: 'Peas' },
+  'الحمص': { ar: 'الحمص', en: 'Chickpeas' },
+  'الفراولة': { ar: 'الفراولة', en: 'Strawberry' },
+  'القطن': { ar: 'القطن', en: 'Cotton' },
+  'القرعيات': { ar: 'القرعيات', en: 'Cucurbits' },
+  'فول الصويا': { ar: 'فول الصويا', en: 'Soybean' },
+  'قصب السكر': { ar: 'قصب السكر', en: 'Sugarcane' },
+  'الذرة الشامية': { ar: 'الذرة الشامية', en: 'Corn / Maize' },
+  'الذرة': { ar: 'الذرة', en: 'Corn / Maize' },
+  'الذرة الرفيعة': { ar: 'الذرة الرفيعة', en: 'Sorghum' },
+  'الأرز': { ar: 'الأرز', en: 'Rice' },
+  'البرسيم': { ar: 'البرسيم', en: 'Clover / Alfalfa' },
+  'الخضراوات': { ar: 'الخضراوات', en: 'Vegetables' },
+  'دوار الشمس': { ar: 'دوار الشمس', en: 'Sunflower' }
+};
+
+export const monthTranslations: Record<string, { ar: string; en: string }> = {
+  'يناير': { ar: 'يناير', en: 'January' },
+  'فبراير': { ar: 'فبراير', en: 'February' },
+  'مارس': { ar: 'مارس', en: 'March' },
+  'أبريل': { ar: 'أبريل', en: 'April' },
+  'مايو': { ar: 'مايو', en: 'May' },
+  'يونيو': { ar: 'يونيو', en: 'June' },
+  'يوليو': { ar: 'يوليو', en: 'July' },
+  'أغسطس': { ar: 'أغسطس', en: 'August' },
+  'سبتمبر': { ar: 'سبتمبر', en: 'September' },
+  'أكتوبر': { ar: 'أكتوبر', en: 'October' },
+  'نوفمبر': { ar: 'نوفمبر', en: 'November' },
+  'ديسمبر': { ar: 'ديسمبر', en: 'December' }
+};

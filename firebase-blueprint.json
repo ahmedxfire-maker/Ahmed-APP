@@ -1,0 +1,163 @@
+{
+  "entities": {
+    "Pest": {
+      "title": "Pest",
+      "description": "Plant pest or disease record in the national phytosanitary registry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "commonName": { "type": "string" },
+        "scientificName": { "type": "string" },
+        "type": { "type": "string" },
+        "quarantineCategory": { "type": "string" },
+        "primaryHostCrops": { 
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "description": { "type": "string" },
+        "riskLevel": { "type": "string" },
+        "imagePlaceholder": { "type": "string" }
+      },
+      "required": ["id", "commonName", "scientificName", "type", "quarantineCategory", "riskLevel"]
+    },
+    "Location": {
+      "title": "Location",
+      "description": "Geographical agricultural center or district in Egypt",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "governorate": { "type": "string" },
+        "markaz": { "type": "string" },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          },
+          "required": ["lat", "lng"]
+        },
+        "agriculturalAreaFeddans": { "type": "number" },
+        "agriculturalSector": { "type": "string" }
+      },
+      "required": ["id", "governorate", "markaz", "coordinates", "agriculturalAreaFeddans", "agriculturalSector"]
+    },
+    "InfestationReport": {
+      "title": "InfestationReport",
+      "description": "Field inspection report documenting pest detection and infestation metrics",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "locationId": { "type": "string" },
+        "pestId": { "type": "string" },
+        "crop": { "type": "string" },
+        "detectionDate": { "type": "string" },
+        "severity": { "type": "string" },
+        "affectedAreaFeddans": { "type": "number" },
+        "infestationSite": { "type": "string" },
+        "infestationRatePercent": { "type": "number" },
+        "sampleInspector": { "type": "string" },
+        "containmentStatus": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "locationId", "pestId", "crop", "detectionDate", "severity", "affectedAreaFeddans"]
+    },
+    "ControlMeasure": {
+      "title": "ControlMeasure",
+      "description": "Phytosanitary control recommendation, pesticide and pre-harvest interval (PHI)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "pestId": { "type": "string" },
+        "pesticideName": { "type": "string" },
+        "activeIngredient": { "type": "string" },
+        "phiDays": { "type": "number" },
+        "dosageAndMethod": { "type": "string" },
+        "quarantineMeasures": { "type": "string" },
+        "approvalAuthority": { "type": "string" }
+      },
+      "required": ["id", "pestId", "pesticideName", "activeIngredient", "phiDays"]
+    },
+    "MonthlyStat": {
+      "title": "MonthlyStat",
+      "description": "Monthly agricultural phytosanitary indicators",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "month": { "type": "string" },
+        "monthCode": { "type": "string" },
+        "newReportsCount": { "type": "number" },
+        "affectedFeddans": { "type": "number" },
+        "treatedFeddans": { "type": "number" },
+        "activeOutbreaks": { "type": "number" }
+      },
+      "required": ["id", "month", "monthCode", "newReportsCount", "affectedFeddans"]
+    },
+    "User": {
+      "title": "User",
+      "description": "System user account with role, job details, and granular permissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "password": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "inactive"] },
+        "role": { "type": "string", "enum": ["super_admin", "employee"] },
+        "department": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "permissions": { "type": "object" },
+        "createdAt": { "type": "string" },
+        "lastLoginAt": { "type": "string" }
+      },
+      "required": ["id", "name", "username", "email", "phoneNumber", "password", "status", "role", "department", "jobTitle"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Audit trail log of all administrative and user operations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userRole": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "targetId": { "type": "string" }
+      },
+      "required": ["id", "userId", "userName", "userRole", "action", "details", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/pests/{pestId}": {
+      "schema": "Pest",
+      "description": "Collection of all registered pests in the national database"
+    },
+    "/locations/{locationId}": {
+      "schema": "Location",
+      "description": "Collection of agricultural centers and surveillance stations across Egyptian governorates"
+    },
+    "/reports/{reportId}": {
+      "schema": "InfestationReport",
+      "description": "Collection of phytosanitary inspection and infestation reports"
+    },
+    "/controlMeasures/{controlId}": {
+      "schema": "ControlMeasure",
+      "description": "Collection of approved pesticides and phytosanitary control measures"
+    },
+    "/monthlyStats/{statId}": {
+      "schema": "MonthlyStat",
+      "description": "Collection of monthly historical infestation and control statistics"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of system user accounts and roles"
+    },
+    "/activityLogs/{logId}": {
+      "schema": "ActivityLog",
+      "description": "Collection of system operation audit logs"
+    }
+  }
+}
